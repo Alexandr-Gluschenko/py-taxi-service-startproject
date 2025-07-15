@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 class Car(models.Model):
     model = models.CharField(max_length=255)
-    manufacturer = models.OneToOneField("Manufacturer", on_delete=models.CASCADE,
+    manufacturer = models.ForeignKey("Manufacturer", on_delete=models.CASCADE,
                                      related_name='cars', unique=True)
     drivers = models.ManyToManyField("Driver", related_name="cars")
 
